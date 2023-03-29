@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\contacMail;
 use App\Mail\messageMail;
+use Illuminate\Support\Facades\Http;
 
 class ClientController extends Controller
 {
@@ -54,35 +55,42 @@ class ClientController extends Controller
             Mail::to($recipient)->send(new messageMail($datos));    
         }
 
-        $curl = curl_init();
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://graph.facebook.com/v16.0/107075959013398/messages',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS =>'{
-                "messaging_product": "whatsapp",
-                "to": "573157683957",
-                "type": "template",
-                "template": {
-                    "name": "hello_world",
-                    "language": {
-                        "code": "en_US"
-                    }
-                }
-            }',
-            CURLOPT_HTTPHEADER => array(
-                'Content-Type: application/json',
-                'Authorization: Bearer EAATtDk57OeoBAAmUoScCz4afnKkwhJ9MMUPjQCvGbqzz1xbBp5fVpZAXpXEsLZAfy5WwOjqVanDZBahH58GtRZAijbem3ZBOACSJLSMGZAHCHjE23xe0FgO3nAceFzLZBP1ggNEGK5g4MYkkoiRTvqfzHpoN4qc0eUTLl1dv3h3o9jZAqAFku9dxr5IFr7vft8A8DMZBr0u3egQZDZD'
-            ),
-        ));
-        $response = curl_exec($curl);
-        curl_close($curl);
+        $phone_id='107075959013398';
+        $version='v16.0';
+        $token=env('TOKEN');
+        
 
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+          CURLOPT_URL => 'https://graph.facebook.com/v16.0/107075959013398/messages',
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => '',
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 0,
+          CURLOPT_FOLLOWLOCATION => true,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => 'POST',
+          CURLOPT_POSTFIELDS =>'{
+            "messaging_product": "whatsapp",
+            "to": "573157683957",
+            "type": "template",
+            "template": {
+                "name": "hello_world",
+                "language": {
+                    "code": "en_US"
+                }
+            }
+        }',
+          CURLOPT_HTTPHEADER => array(
+            'Content-Type: application/json',
+            'Authorization: Bearer '.$token
+          ),
+        ));
+        
+        $response = curl_exec($curl);
+        
+        curl_close($curl);
 
         return response()->json($data);
 
