@@ -25,7 +25,5 @@ Route::get('clients/{client}',[ClientController::class, 'show']);
 Route::put('clients/{client}',[ClientController::class, 'update']);
 Route::delete('clients/{client}',[ClientController::class, 'destroy']);
 
-Route::middleware(['cors'])->group(function () {
-    Route::post('/hogehoge', 'Controller@hogehoge');
-});
+
 
