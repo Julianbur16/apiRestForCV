@@ -4,7 +4,7 @@ use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
-header("Access-Control-Allow-Origin: https://ubiquitous-begonia-7d5d23.netlify.app/Perfil");
+header("Access-Control-Allow-Origin: *");
 
 
 /*header('content-type: application/json; charset=utf-8');
