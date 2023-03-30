@@ -34,7 +34,6 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        $request->headers->set('Accept', 'application/json');
         $clients=new client();
         $clients->name=$request->name;
         $clients->email=$request->email;
