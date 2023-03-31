@@ -44,7 +44,7 @@ class ServiceController extends Controller
      */
     public function show(service $service)
     {
-        $services=service::where('type',1)->get();
+        $services=service::where('type',$service)->get();
         return $services; 
     }
 
