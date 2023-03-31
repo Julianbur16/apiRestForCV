@@ -12,7 +12,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services=service::all();
+        return response()->json($services);
     }
 
     /**
@@ -28,7 +29,14 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $services = new service();
+        $services->url=$request->url;
+        $services->title=$request->title;
+        $services->description=$request->description;
+        $services->type=$request->type;
+        $services->save();
+        return response()->json($services);
+
     }
 
     /**
@@ -36,7 +44,13 @@ class ServiceController extends Controller
      */
     public function show(service $service)
     {
-        //
+        $services=service::where('type',$service);
+        if($services != null){
+            return response()->json($services);
+        }else{
+            $data=["message"=>"cliente no existe"];
+            return response()->json($data);
+        }
     }
 
     /**
@@ -52,7 +66,19 @@ class ServiceController extends Controller
      */
     public function update(Request $request, service $service)
     {
-        //
+        $service->url=$request->url;
+        $service->title=$request->title;
+        $service->description=$request->description;
+        $service->type=$request->type;
+        $service->save();
+
+        $data=[
+            "message"=>"client update successfully",
+            "client"=>"$service"
+        ];
+
+        return response()->json($data);
+
     }
 
     /**
@@ -60,6 +86,9 @@ class ServiceController extends Controller
      */
     public function destroy(service $service)
     {
-        //
+        $services=service::find($service->id);
+        $services->delete();
+        $data=["message"=>"client delete successfully"];
+        return response()->json($data);
     }
 }
