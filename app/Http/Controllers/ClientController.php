@@ -59,6 +59,7 @@ class ClientController extends Controller
         $version='v16.0';
         $token=env('TOKEN');
         
+        if($request->phone != ''){
 
         $curl = curl_init();
 
@@ -73,11 +74,11 @@ class ClientController extends Controller
           CURLOPT_CUSTOMREQUEST => 'POST',
           CURLOPT_POSTFIELDS =>'{
             "messaging_product": "whatsapp",
-            "to": '.$request->phone.',
+            "to": 57'.$request->phone.',
             "type": "text",
             "text": { 
             "preview_url": false,
-            "body": "Este mensaje esta personalizado"
+            "body": "Le confirmo la entrega de su mensaje, le daré pronta respuesta mediante email."
         }
         }',
           CURLOPT_HTTPHEADER => array(
@@ -89,8 +90,7 @@ class ClientController extends Controller
         $response = curl_exec($curl);
         
         curl_close($curl);
-
-
+    }
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -108,7 +108,7 @@ class ClientController extends Controller
             "type": "text",
             "text": { 
             "preview_url": false,
-            "body": "Este mensaje esta personalizado"
+            "body": "Confirmo la recepción de un mensaje favor revisar medios de comunicación."
         }
         }',
           CURLOPT_HTTPHEADER => array(
