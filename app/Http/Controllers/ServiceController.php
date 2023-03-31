@@ -42,7 +42,7 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(service $service)
+    public function show(string $service)
     {
         $services=service::where('type',$service)->get();
         return $service; 
