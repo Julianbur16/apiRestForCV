@@ -45,12 +45,7 @@ class ServiceController extends Controller
     public function show(service $service)
     {
         $services=service::where('type',$service);
-        if($services != null){
-            return response()->json($services);
-        }else{
-            $data=["message"=>"cliente no existe"];
-            return response()->json($data);
-        }
+        return response()->json($services); 
     }
 
     /**
