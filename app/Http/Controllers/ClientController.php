@@ -87,12 +87,12 @@ class ClientController extends Controller
                             "parameters": [
                                 {
                                     "type": "text",
-                                    "text": "TEXT_STRING"
+                                    "text": '.$request->name.'
                                     },
                                 
                                 {
                                     "type": "text",
-                                    "text": "TEXT_STRING"
+                                    "text": "https://adorable-muffin-f685cb.netlify.app/Perfil"
                                     }
                                 ]
                         }
