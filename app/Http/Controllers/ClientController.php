@@ -105,11 +105,27 @@ class ClientController extends Controller
           CURLOPT_POSTFIELDS =>'{
             "messaging_product": "whatsapp",
             "to": "573157683957",
-            "type": "text",
-            "text": { 
-            "preview_url": false,
-            "body": "Confirmo la recepción de un mensaje favor revisar medios de comunicación."
-        }
+            "template": {
+                "name": "mensage",
+                "language": {
+                    "code": "es"
+                },
+                "components": [
+                    {
+                        "type": "body",
+                        "parameters": [
+                            {
+                                "type": "text",
+                                "text": "TEXT_STRING"
+                            },
+                            {
+                                "type": "text",
+                                "text": "TEXT_STRING"
+                            }
+                        ]
+                    }
+                ]
+            }
         }',
           CURLOPT_HTTPHEADER => array(
             'Content-Type: application/json',
