@@ -87,7 +87,7 @@ class ClientController extends Controller
                             "parameters": [
                                 {
                                     "type": "text",
-                                    "text": "'.$request->name.'"
+                                    "text": " '.$request->name.'"
                                     },
                                 
                                 {
