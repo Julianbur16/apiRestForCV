@@ -32,7 +32,7 @@ class ServiceController extends Controller
         $services = new service();
         $services->url=$request->url;
         $services->title=$request->title;
-        $services->description=$request->description;
+        $services->descripcion=$request->descripcion;
         $services->type=$request->type;
         $services->save();
         return response()->json($services);
