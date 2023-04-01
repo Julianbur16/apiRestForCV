@@ -91,51 +91,55 @@ class ClientController extends Controller
         
         curl_close($curl);
     }
-        $curl = curl_init();
+    $curl = curl_init();
 
-        curl_setopt_array($curl, array(
-          CURLOPT_URL => 'https://graph.facebook.com/v16.0/108950852159753/messages',
-          CURLOPT_RETURNTRANSFER => true,
-          CURLOPT_ENCODING => '',
-          CURLOPT_MAXREDIRS => 10,
-          CURLOPT_TIMEOUT => 0,
-          CURLOPT_FOLLOWLOCATION => true,
-          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-          CURLOPT_CUSTOMREQUEST => 'POST',
-          CURLOPT_POSTFIELDS =>'{
-            "messaging_product": "whatsapp",
-            "to": "573157683957",
-            "template": {
-                "name": "mensage",
-                "language": {
-                    "code": "es"
-                },
-                "components": [
-                    {
-                        "type": "body",
-                        "parameters": [
-                            {
-                                "type": "text",
-                                "text": "TEXT_STRING"
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => 'https://graph.facebook.com/v16.0/108950852159753/messages',
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => '',
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => 'POST',
+      CURLOPT_POSTFIELDS =>'{
+        "messaging_product": "whatsapp",
+        "to": "573157683957",
+        "type": "template",
+        "template": {
+            "name": "mensage",
+            "language": {
+                "code": "es"
+            },
+            "components": [
+                {
+                    "type": "body",
+                    "parameters": [
+                        {
+                            "type": "text",
+                            "text": "TEXT_STRING"
                             },
-                            {
-                                "type": "text",
-                                "text": "TEXT_STRING"
+                        
+                        {
+                            "type": "text",
+                            "text": "TEXT_STRING"
                             }
                         ]
-                    }
-                ]
-            }
-        }',
-          CURLOPT_HTTPHEADER => array(
-            'Content-Type: application/json',
-            'Authorization: Bearer '.$token
-          ),
-        ));
-        
-        $response = curl_exec($curl);
-        
-        curl_close($curl);
+                }
+            ]
+        }
+    }',
+      CURLOPT_HTTPHEADER => array(
+        'Content-Type: application/json',
+        'Authorization: Bearer '.$token
+    ),
+    ));
+    
+    $response = curl_exec($curl);
+    
+    curl_close($curl);
+    echo $response;
+    
 
         return response()->json($data);
 
