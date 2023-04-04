@@ -21,12 +21,10 @@ class chatController extends Controller
                 'temperature' => 0.7,
                 'max_tokens' => 50,
                 'stop' => '\n'
-    ]
-]);
-
-$result = json_decode($response->getBody()->getContents(), true);
-$answer = $result['choices'][0]['text'];
-
-return $answer;
+                ]
+            ]);
+            $result = json_decode($response->getBody()->getContents(), true);
+            $answer = $result['choices'][0]['text'];
+            return $answer;
     }
 }
