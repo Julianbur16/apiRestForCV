@@ -12,7 +12,7 @@ class chatController extends Controller
         $client = new Client();
         $response = $client->post('https://api.openai.com/v1/chat/completions', [
             'headers' => [
-                'Authorization' => 'Bearer '.env('YOUR_API_KEY'),
+                'Authorization' => 'Bearer '.env('OPENAI_API_KEY'),
                 'Content-Type' => 'application/json',
             ],
             'json' => [
