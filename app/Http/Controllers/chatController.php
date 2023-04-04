@@ -16,12 +16,8 @@ class chatController extends Controller
                 'Authorization' => 'Bearer ' . env('OPENAI_API_KEY'),
             ],
             'json' => [
-                'prompt' => $request->input('message'),
-                'temperature' => 0.7,
+                'prompt' => $request->message,
                 'max_tokens' => 60,
-                'top_p' => 1,
-                'n' => 1,
-                'stop' => ['\n'],
             ],
         ]);
         $result = json_decode($response->getBody()->getContents(), true);
