@@ -16,7 +16,7 @@ class chatController extends Controller
             ],
         ]);
 
-        $response = $client->post('https://api.openai.com/v1/engine/davinci-codex/completions', [
+        $response = $client->post('https://api.openai.com/v1/engines/davinci-codex/completions', [
             'json' => [
                 'prompt' => 'Hello, how are you?',
                 'max_tokens' => 50,
