@@ -9,24 +9,24 @@ class chatController extends Controller
 {
     public function chat()
     {
-        $client = new Client([
+        $client = new Client();
+        $response = $client->post('https://api.openai.com/v1/chat/completions', [
             'headers' => [
-                'Authorization' => 'Bearer '.env('OPENAI_API_KEY'),
+                'Authorization' => 'Bearer YOUR_API_KEY',
                 'Content-Type' => 'application/json',
             ],
-        ]);
-
-        $response = $client->post('https://api.openai.com/v1/chat/completions', [
             'json' => [
-                'model'=> 'text-davinci-003',
-                'prompt'=> 'Say this is a test',
-                'max_tokens'=> 7,
-                'temperature'=> 0,
-            ],
-        ]);
+                'model' => 'davinci',
+                'prompt' => 'Hello, how are you?',
+                'temperature' => 0.7,
+                'max_tokens' => 50,
+                'stop' => '\n'
+    ]
+]);
 
-        $result = json_decode($response->getBody(), true);
+$result = json_decode($response->getBody()->getContents(), true);
+$answer = $result['choices'][0]['text'];
 
-        return $result['choices'][0]['text'];
+return $answer;
     }
 }
