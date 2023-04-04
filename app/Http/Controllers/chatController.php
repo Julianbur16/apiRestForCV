@@ -18,6 +18,7 @@ class chatController extends Controller
 
         $response = $client->post('https://api.openai.com/v1/chat/completions', [
             'json' => [
+                'model' => 'davinci',
                 'prompt' => 'Hello, how are you?',
                 'max_tokens' => 50,
                 'temperature' => 0.7,
