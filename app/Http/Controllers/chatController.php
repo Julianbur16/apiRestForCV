@@ -20,9 +20,9 @@ class chatController extends Controller
             'json' => [
                 'model' => 'davinci',
                 'prompt' => 'Hello, how are you?',
-                'max_tokens' => 50,
                 'temperature' => 0.7,
-                'stop' => ['\n']
+                'max_tokens' => 50,
+                'stop' => '\n'
             ],
         ]);
 
