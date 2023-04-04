@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\chatController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Http\Request;
@@ -32,3 +33,6 @@ Route::post('services',[ServiceController::class, 'store']);
 Route::get('services/{service}',[ServiceController::class, 'show']);
 Route::put('services/{service}',[ServiceController::class, 'update']);
 Route::delete('services/{service}',[ServiceController::class, 'destroy']);
+
+
+Route::get('chat',[chatController::class, 'chat']);

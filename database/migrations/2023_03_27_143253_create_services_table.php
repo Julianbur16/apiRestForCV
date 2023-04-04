@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('url');
-            $table->text('descripcion');
+            $table->text('descripciones');
+            $table->text('descripcionen');
+            $table->text('descripcionpt');
+            $table->text('descripcionfc');
             $table->integer('type');
             $table->timestamps();
         });
