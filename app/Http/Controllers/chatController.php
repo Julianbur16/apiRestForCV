@@ -9,22 +9,27 @@ class chatController extends Controller
 {
     public function chat()
     {
-        $client = new Client();
-        $response = $client->post('https://api.openai.com/v1/chat/completions', [
-            'headers' => [
-                'Authorization' => 'Bearer '.env('OPENAI_API_KEY'),
-                'Content-Type' => 'application/json',
-            ],
-            'json' => [
-                'model' => 'davinci',
-                'message' => 'Hello, how are you?',
-                'temperature' => 0.7,
-                'max_tokens' => 50,
-                'stop' => '\n'
-                ]
-            ]);
-            $result = json_decode($response->getBody()->getContents(), true);
-            $answer = $result['choices'][0]['text'];
-            return $answer;
+        $openaiApiKey = env('OPENAI_API_KEY');
+        $data = array(
+            'model' => 'gpt-3.5-turbo',
+            'messages' => array(
+                array(
+                    'role' => 'user',
+                    'content' => 'Hello!'
+                    )
+                    )
+                );
+                $payload = json_encode($data);
+                $ch = curl_init('https://api.openai.com/v1/chat/completions');
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                    'Content-Type: application/json',
+                    'Authorization: Bearer '.$openaiApiKey
+                ));
+                $result = curl_exec($ch);
+                curl_close($ch);
+                return $result;
     }
+    
 }
