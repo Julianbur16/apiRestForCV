@@ -7,7 +7,7 @@ use GuzzleHttp\Client;
 
 class chatController extends Controller
 {
-    public function chat()
+    public function chat(Request $request)
     {
         $openaiApiKey = env('OPENAI_API_KEY');
         $data = array(
@@ -15,7 +15,7 @@ class chatController extends Controller
             'messages' => array(
                 array(
                     'role' => 'user',
-                    'content' => 'Hello!'
+                    'content' => $request->message
                     )
                     )
                 );

@@ -35,4 +35,4 @@ Route::put('services/{service}',[ServiceController::class, 'update']);
 Route::delete('services/{service}',[ServiceController::class, 'destroy']);
 
 
-Route::get('chat',[chatController::class, 'chat']);
+Route::post('chat',[chatController::class, 'chat']);
