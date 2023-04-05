@@ -11,16 +11,13 @@ class chatController extends Controller
     {
         $openaiApiKey = env('OPENAI_API_KEY');
         $data = array(
-            'model' => 'text-davinci-003',
-            'messages' => array(
-                array(
-                    'role' => 'user',
-                    'content' => $request->message
-                    )
-                    )
-                );
+            'model' => 'text-davinci-003', // Especifica el modelo de OpenAI que se utilizará para generar el texto
+            'prompt' => 'Say this is a test', // Especifica el fragmento de texto que se usará como entrada para generar el texto
+            'max_tokens' => 7, // Especifica el número máximo de "tokens" (palabras o caracteres) que se generarán en la respuesta
+            'temperature' => 0 // Especifica el nivel de "temperatura" para el modelo (0 = sin aleatoriedad, 1 = completamente aleatorio)
+        );
                 $payload = json_encode($data);
-                $ch = curl_init('https://api.openai.com/v1/chat/completions');
+                $ch = curl_init('https://api.openai.com/v1/completions');
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
                 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
