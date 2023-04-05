@@ -11,7 +11,7 @@ class chatController extends Controller
     {
         $openaiApiKey = env('OPENAI_API_KEY');
         $data = array(
-            'model' => 'gpt-3.5-turbo',
+            'model' => 'text-davinci-003',
             'messages' => array(
                 array(
                     'role' => 'user',
