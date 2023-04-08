@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('titlees');
+            $table->string('titleen');
+            $table->string('titlept');
+            $table->string('titlefc');
             $table->text('url');
             $table->text('descripciones');
             $table->text('descripcionen');

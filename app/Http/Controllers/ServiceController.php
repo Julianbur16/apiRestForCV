@@ -31,7 +31,10 @@ class ServiceController extends Controller
     {
         $services = new service();
         $services->url=$request->url;
-        $services->title=$request->title;
+        $services->titlees=$request->titlees;
+        $services->titleen=$request->titleen;
+        $services->titlept=$request->titlept;
+        $services->titlefc=$request->titlefc;
         $services->descripciones=$request->descripciones;
         $services->descripcionen=$request->descripcionen;
         $services->descripcionpt=$request->descripcionpt;
@@ -65,7 +68,10 @@ class ServiceController extends Controller
     public function update(Request $request, service $service)
     {
         $service->url=$request->url;
-        $service->title=$request->title;
+        $service->titlees=$request->titlees;
+        $service->titleen=$request->titleen;
+        $service->titlept=$request->titlept;
+        $service->titlefc=$request->titlefc;
         $service->descripciones=$request->descripciones;
         $service->descripcionen=$request->descripcionen;
         $service->descripcionpt=$request->descripcionpt;
