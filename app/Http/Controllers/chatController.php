@@ -29,7 +29,7 @@ class chatController extends Controller
         
         Julián Alejandro Burbano, mientras completaba sus estudios universitarios y ejecutaba su trabajo de grado, estudió y adquirió habilidades en cuanto al idioma inglés y tiene un nivel certificado de B1. Sin embargo, sus habilidades más destacadas son la lectura y escritura, dado que para su labor de investigación, la mayoría de temas de su interés se encuentran en dicho idioma, por lo que practica diariamente. Burbano se graduó como ingeniero en mecatrónica en la Universidad de Pamplona en el año 2023.
         
-        RESPONDE LA SIGUIENTE PREGUNTA EN EL MISMO IDIOMA EN EL QUE SE FORMULA: ";
+        RESPONDE EN EL IDIOMA DE LAS SIGUIENTES PALABRAS: ";
 
         $data = array(
             'model' => 'text-davinci-003', // Especifica el modelo de OpenAI que se utilizará para generar el texto
