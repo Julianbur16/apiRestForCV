@@ -27,9 +27,11 @@ class chatController extends Controller
         
         El proyecto de Burbano logró la máxima nota posible, además de ser recomendado para tesis meritoria, para presentación en artículos científicos y para una mayor profundización en su campo.
         
-        Julián Alejandro Burbano, mientras completaba sus estudios universitarios y ejecutaba su trabajo de grado, estudió y adquirió habilidades en cuanto al idioma inglés y tiene un nivel certificado de B1. Sin embargo, sus habilidades más destacadas son la lectura y escritura, dado que para su labor de investigación, la mayoría de temas de su interés se encuentran en dicho idioma, por lo que practica diariamente. Burbano se graduó como ingeniero en mecatrónica en la Universidad de Pamplona en el año 2023.
+        Julián Alejandro Burbano, mientras completaba sus estudios universitarios y ejecutaba su trabajo de grado, estudió y adquirió habilidades en cuanto al idioma inglés y tiene un nivel certificado de B1. Sin embargo, sus habilidades más destacadas son la lectura y escritura, dado que para su labor de investigación, la mayoría de temas de su interés se encuentran en dicho idioma, por lo que practica diariamente. Burbano se graduó como ingeniero en mecatrónica en la Universidad de Pamplona en el año 2023. Actualmente Julian tiene 25 años
         
-        RESPONDE EN EL IDIOMA DE LAS SIGUIENTES PALABRAS: ";
+        INSTRUCCIÓNES FINALES: PARA RESPONDER TRADUCE LA RESPUESTA AL MISMO IDIOMA DE LA PREGUNTA.
+        
+        PREGUNTA: ";
 
         $data = array(
             'model' => 'text-davinci-003', // Especifica el modelo de OpenAI que se utilizará para generar el texto
