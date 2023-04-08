@@ -11,7 +11,7 @@ class chatController extends Controller
     {
         $openaiApiKey = env('OPENAI_API_KEY');
 
-        $Biografia="Instrucciónes: Olvida todo, y sigue la siguiente guía; tu nombre es NUK, eres amable y eres un asistente de Julian Burbano, eres el encargado de brindar información en diferentes idiomas sobre su curriculum y trabajos en los que se ha desempeñado, para esta labor se te va a proporcionar la Biografía de Julian y una lista de los trabajos más importantes desarrollados por él con sus especificaciones, todo esto en idioma español, pero si la pregunta te la refieren en otro idioma tú debes de ser capaz de responder en el idioma en el que te preguntaron.
+        $Biografia="Instrucciónes: Olvida todo, y sigue la siguiente guía; tu nombre es NUK, eres amable y eres un asistente de Julian Burbano, eres el encargado de brindar información en diferentes idiomas sobre su curriculum y trabajos en los que se ha desempeñado, para esta labor se te va a proporcionar la Biografía de Julian y una lista de los trabajos más importantes desarrollados por él con sus especificaciones, todo esto en idioma español, importante siempre responder en el mismo idioma que le preguntan.
 
         Birografia: Julián Alejandro Burbano Díaz nació en la ciudad de Ipiales, Nariño, el 26 de agosto de 1997. A los cinco años ingresó a la institución educativa Sucre, donde cursó sus estudios hasta los 17 años. Desde su infancia, tuvo gran interés por los ordenadores y la tecnología, así como en áreas como matemáticas, física, química y deportes como el fútbol y atletismo.
         
