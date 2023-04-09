@@ -35,8 +35,8 @@ class chatController extends Controller
         $data = array(
             'model' => 'text-davinci-003', // Especifica el modelo de OpenAI que se utilizará para generar el texto
             'prompt' => $Biografia.$request->message, // Especifica el fragmento de texto que se usará como entrada para generar el texto
-            'max_tokens' => 210, // Especifica el número máximo de "tokens" (palabras o caracteres) que se generarán en la respuesta
-            'temperature' => 0.7 // Especifica el nivel de "temperatura" para el modelo (0 = sin aleatoriedad, 1 = completamente aleatorio)
+            'max_tokens' => 2100, // Especifica el número máximo de "tokens" (palabras o caracteres) que se generarán en la respuesta
+            'temperature' => 0.5 // Especifica el nivel de "temperatura" para el modelo (0 = sin aleatoriedad, 1 = completamente aleatorio)
         );
                 $payload = json_encode($data);
                 $ch = curl_init('https://api.openai.com/v1/completions');
